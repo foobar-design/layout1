@@ -1,6 +1,7 @@
 body {
 	background-color: #F7F7F7;
 	font: 13px/21px 'Open Sans', arial, sans-serif;	
+	overflow-y: scroll;
 }
 
 /* Adds custom design elements to container defined in screen.css from Blueprint. */

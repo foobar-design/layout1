@@ -1,249 +1,205 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Webdesign Company</title>
-<link href="css/screen.css" rel="stylesheet" type="text/css" />
-<link href="css/custom.css" rel="stylesheet" type="text/css" />
-<link href="css/tabs2.css" rel="stylesheet" type="text/css" />
-<link href="css/navigation.css" rel="stylesheet" type="text/css" />
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Webdesign Company</title>
+		<link href="css/screen.css" rel="stylesheet" type="text/css" />
+		<link href="css/custom.css" rel="stylesheet" type="text/css" />
+		<link href="css/tabs2.css" rel="stylesheet" type="text/css" />
+		<link href="css/tooltip.css" rel="stylesheet" type="text/css" />
+		<link href="css/navigation.css" rel="stylesheet" type="text/css" />
 
-<style type="text/css">
-#foo12x {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 200px;
-    background-color: #ccc;
-}
+		<style type="text/css">
+			#foo12x {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 200px;
+				background-color: #ccc;
+			}
 
-#tooltip{
-	position:absolute;
-	border:1px solid #333;
-	background:#f7f5d1;
-	padding:2px 5px;
-	color:#333;
-	display:none;
-	}
-	
+			#tooltipXXX {
+				position: absolute;
+				border: 1px solid #333;
+				background: #f7f5d1;
+				padding: 2px 5px;
+				color: #333;
+				display: none;
+			}
 
-</style>
+		</style>
 
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+		<script type='text/javascript' src='js/tooltip.js'></script>
+		<script type='text/javascript' src='js/tabs.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
 
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
+		<script type="text/javascript">
+			$(document).ready(function() {
 
-<script type="text/javascript">
-	$(document).ready(function() {   
-		$("ul.tabs li.label").hide(); 
-		$("#tab-set > div").hide(); 
-		$("#tab-set > div").eq(0).show(); 
-	    
-	   $("ul.tabs a").click( 
-		function() { 
-			$("ul.tabs a.selected").removeClass('selected'); 
-			$("#tab-set > div").hide();
-			$(""+$(this).attr("href")).animate({
-					opacity: 'show'
-				}, 1500);
-				
-				
-			$(this).addClass('selected'); 
-			return false; 
-		}
-	  );
+				$('#design').animate({
+					"right" : "+860px"
+				}, 2000);
 
-	$('#design').animate(
-		{"right": "+860px"}, 2000
-	);	  
-	
-	
-	
-	
-	
+				$('#ak').hide().animate({
+					opacity : 'show'
+				}, 2000);
 
+				$(".popup2").hover(function(e) {
+					var t = $(this).children().html();
+					xOffset = 10;
+					yOffset = 20;
+					$("body").append("<p id='tooltip'>" + t + "</p>");
+					$("#tooltip").css("top", (e.pageY - xOffset) + "px").css("left", (e.pageX + yOffset) + "px").show();
+				}, function() {
+					$("#tooltip").remove();
+				});
 
- $('#ak').hide().animate({
-opacity: 'show'
-}, 2000);	
-	  
-	
+			});
 
-	
-		
+		</script>
 
+	</head>
+	<body>
+		<div class="container">
 
-	
-
-
-	$(".popup2").hover( function(e) {
-		var t = $(this).children().html();
-		xOffset = 10;
-		yOffset = 20;			
-			$("body").append("<p id='tooltip'>"+ t +"</p>");
-		$("#tooltip").css("top",(e.pageY - xOffset) + "px")
-			.css("left",(e.pageX + yOffset) + "px").show();		
-	},
-	function(){
-		$("#tooltip").remove();
-    });	
-	  
-});	   
-	  
-
-</script>
-
- 
-</head>
-<body>
-	<div class="container">
-		
-		<div class="span-24">
-			<div class="textright padding-15" style="letter-spacing: 0.15em;"> 
-			<img src="icons/40.png" /> 0531-123456 | <img src="icons/57.png" /> info@ak-design.de
+			<div class="span-24">
+				<div class="textright padding-15" style="letter-spacing: 0.15em;">
+					<img src="icons/40.png" /> 0531-123456 | <img src="icons/57.png" /> info@ak-design.de
+				</div>
 			</div>
-		</div>
-		
-		<div class="span-24 showdgrid">
-			<div class="span-13 padding-15 headline">
-				<div style="font-size: 35px; letter-spacing: 0.1em; padding-top: 20px; padding-left: 15px;">
-					<span id="ak" class="red">A&amp;K</span>
-					<span style="position:absolute; right:0;" id="design">Design</span>
+
+			<div class="span-24 showdgrid">
+				<div class="span-13 padding-15 headline">
+					<div style="font-size: 35px; letter-spacing: 0.1em; padding-top: 20px; padding-left: 15px;">
+						<span id="ak" class="red">A&amp;K</span>
+						<span style="position:absolute; right:0;" id="design">Design</span>
+					</div>
+
+				</div>
+
+				<div class="span-9 padding-15 headline last rdight showdgrid" style="position: relative; padding-right: 0px;">
+					<div style="position: absolute; bottom: 0; right: 0;">
+						Search website
+						<input type="text">
+						</input>
+					</div>
 				</div>
 
 			</div>
-			
-			<div class="span-9 padding-15 headline last rdight showdgrid" style="position: relative; padding-right: 0px;">
-				<div style="position: absolute; bottom: 0; right: 0;">
-					Search website <input type="text"></input> 
-				</div>
-			</div>
-			
-		</div>
-		
-		<div class="span-24">
-			<div class="padding-15">
-				<div class="navigation-bar">
-					<ul>
-					   <li class='active'><a href='index.html' msg="Zur Startseite"><span>Home</span></a></li>
-					   <li class='has-sub'><a href='#' msg="Erfahren Sie von unseren angebotenen Leistungen"><span>Leistungen</span></a>
-					   <li>
-								<a href='#' msg="A&amp;K Design stellt sich vor">
-									<span>Über uns</span>
-								</a>
-								
-						</li>
-					   <li><a href='#' msg="Informieren Sie sich über Neuigkeiten in unserem Blog"><span>Blog</span></a></li>
-					   <li class='last'><a href='#' msg="Nehmen Sie Kontakt mit uns auf"><span>Kontakt</span></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>		
-		
-		<div class="span-24">
-		
-			<div class="padding-15">
-							
-						<div id="foo12" style="position: relative;">
-							<h1 class="title red">Unsere Leistungen ^_^</h1>		
-						</div>
-						
-						<div id="zeile" style="background-color: #eeeeee; padding: 1px; margin: 0px 25px 0px 15px;">
-						</div>
-						
-						<p class="padding-15">
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-						</p>
-									
-	
-						<div class="span-20 push-1 prepend-top">
-							<ul class='tabs'>
-								<li><a href='#text1' class='selected' title="Webdesign">Webdesign</a></li>
+
+			<div class="span-24">
+				<div class="padding-15">
+					<div class="navigation-bar">
+						<ul>
+							<li class='active'>
+								<a href='index.html' msg="Zur Startseite"><span>Home</span></a>
+							</li>
+							<li class='has-sub'>
+								<a href='#' msg="Erfahren Sie von unseren angebotenen Leistungen"><span>Leistungen</span></a>
 								<li>
-									<a class="popup" href='#text2' msg="Lernen Sie uns kennen">Optimierung
-									</a>
+									<a href='#' msg="A&amp;K Design stellt sich vor"> <span>Über uns</span> </a>
+
 								</li>
 								<li>
-									<a class="popup2" href='#text3'>
-										Prostitution
-										<span class="foot" style="display: none;">
-											<img style="width: 200px;" src="https://i.chzbgr.com/maxW500/7063186432/h24A8D85A/" />
-										</span>
-									</a>
+									<a href='#' msg="Informieren Sie sich über Neuigkeiten in unserem Blog"><span>Blog</span></a>
 								</li>
-							</ul>
-					
-							
-							<div id="tab-set">
-							
-								<div class="tab-text" id='text1'>
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-								</div>
-								
-								<div class="tab-text" id='text2'>
-								
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-									
-								</div>
-								
-								<div class="tab-text" id='text3'> 
-									
-									<code>
-							
-									</code>
-								
-								</div>
-								
+								<li class='last'>
+									<a href='#' msg="Nehmen Sie Kontakt mit uns auf"><span>Kontakt</span></a>
+								</li>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="span-24">
+
+				<div class="padding-15">
+
+					<div id="foo12" style="position: relative;">
+						<h1 class="title red">Unsere Leistungen</h1>
+					</div>
+
+					<div id="zeile" style="background-color: #eeeeee; padding: 1px; margin: 0px 25px 0px 15px;"></div>
+
+					<p class="padding-15">
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+					</p>
+
+					<div class="span-20 push-1 prepend-top">
+						<ul class='tabs'>
+							<li>
+								<a href='#text1' class='selected' title="Webdesign">Webdesign</a>
+							</li>
+							<li>
+								<a class="popup" href='#text2' msg="Lernen Sie uns kennen">Optimierung </a>
+							</li>
+							<li>
+								<a class="popup2" href='#text3'> Prostitution <span class="foot" style="display: none;"> <img style="width: 200px;" src="https://i.chzbgr.com/maxW500/7063186432/h24A8D85A/" /> </span> </a>
+							</li>
+						</ul>
+
+						<div id="tab-set">
+
+							<div class="tab-text" id='text1'>
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 							</div>
+
+							<div class="tab-text" id='text2'>
+
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+							</div>
+
+							<div class="tab-text" id='text3'>
+
+								<code>
+
+								</code>
+
+							</div>
+
 						</div>
-								
-	
+					</div>
 
-			</div>
-		</div>
-		
-
-		
-		
-		<div class="span-24" style="background-color: rgb(250,250,250); color: rgb(190,190,190); border-top: #EEEEEE 1px solid;">
-			<div  class="textright padding-5">
-				&copy; 2013 A&amp;K-Design | Impressum
-			</div>
-		</div>
-		
-	<!--
-		<div class="span-24">
-			<div style="background-color: rgb(250,250,250); color: rgb(20,20,20); text-align: justify;">
-				<div class="span-4 padding-15 border">
-					<span class="bold red"> Kontakt </span><br/>
-					info@ak-design.de<br/>
-					Tel.: 0531-123456
 				</div>
-				
-				<div class="span-11 padding-15 border">
-					<span class="bold red"> Über A&amp;K-Design </span><br/>
-					Wir sind ein junges Unternehmen im Bereich Webdesign mit Sitz im schönen Braunschweig. 
-				</div>	
-
-				<div class="span-4 padding-15 last">
-						<span class="bold red"> Besuchen Sie uns </span><br/>
-					Twitter: <br/>
-					Google+: <br/>
-				</div>	
-			
-				<div style="clear: both; height: 0px;"></div>
 			</div>
 
+			<div class="span-24" style="background-color: rgb(250,250,250); color: rgb(190,190,190); border-top: #EEEEEE 1px solid;">
+				<div  class="textright padding-5">
+					&copy; 2013 A&amp;K-Design | Impressum
+				</div>
+			</div>
+
+			<!--
+			<div class="span-24">
+			<div style="background-color: rgb(250,250,250); color: rgb(20,20,20); text-align: justify;">
+			<div class="span-4 padding-15 border">
+			<span class="bold red"> Kontakt </span><br/>
+			info@ak-design.de<br/>
+			Tel.: 0531-123456
+			</div>
+
+			<div class="span-11 padding-15 border">
+			<span class="bold red"> Über A&amp;K-Design </span><br/>
+			Wir sind ein junges Unternehmen im Bereich Webdesign mit Sitz im schönen Braunschweig.
+			</div>
+
+			<div class="span-4 padding-15 last">
+			<span class="bold red"> Besuchen Sie uns </span><br/>
+			Twitter: <br/>
+			Google+: <br/>
+			</div>
+
+			<div style="clear: both; height: 0px;"></div>
+			</div>
+
+			</div>
+
+			-->
+
 		</div>
-		
-		-->
-	
-	</div>
-	
 
-
-
-
-
-</body>
+	</body>
 </html>
