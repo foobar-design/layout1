@@ -67,3 +67,8 @@ p {
 .bold {
 	font-weight: bold;
 }
+
+/* NUR ZUM TEST WEGEN SLIDER. SPÄTER ENTFERNEN!!! TODO */
+div.slider img {
+	position: absolute;
+}
